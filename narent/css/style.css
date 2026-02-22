@@ -15,15 +15,6 @@ body {
     justify-content: center;
 }
 
-
-.dashboard-card {
-    transition: 0.3s;
-}
-
-.dashboard-card:hover {
-    transform: scale(1.05);
-}
-
 footer {
     margin-top: 50px;
 }

@@ -1,6 +1,82 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #c8ba92; 
+    color: #212529;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
     background-color: #2c2616;
+    color: #f8f9fa;
+}
+
+body.dark-mode nav {
+    background-color: #1f1f1f; 
+}
+
+body.dark-mode .card {
+    background-color: rgba(0, 0, 0, 0.4); 
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .main-footer, 
+body.dark-mode .footer-bottom {
+    background-color: #1a1a1a; 
+}
+
+body.dark-mode .modal-content {
+    background-color: #1f1f1f;
+    color: #ffffff; 
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .modal-title {
+    color: #ffffff !important;
+}
+
+body.dark-mode .list-group-item {
+    background-color: transparent;
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+body:not(.dark-mode) .btn-primary {
+    background: #76663b !important;
+    border: none !important;
+}
+
+body.dark-mode .modal-body .text-muted {
+    color: #cbd5e0 !important; 
+}
+
+body.dark-mode .modal-body small {
+    color: #f8f9fa !important;
+}
+
+body.dark-mode .modal-body h6 {
+    color: #ffffff !important;
+}
+
+body.dark-mode #sewaModal .modal-content,
+body.dark-mode #wishlistNotifModal .modal-content {
+    background-color: #1f1f1f;
+    color: white;
+}
+
+body.dark-mode .text-muted {
+    color: #cbd5e0 !important;
 }
 
 .hero {
@@ -22,7 +98,6 @@ footer {
 nav {
     background-color: #76663b;
     font-family: 'Montserrat', sans-serif;
-    -webkit-text-fill-color: #f8f9fa;
 }
 
 .navbar-toggler-icon {
@@ -34,6 +109,9 @@ nav {
 }
 .navbar-toggler:focus {
     box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25) !important;
+}
+.navbar-brand, .nav-link {
+    color: #f8f9fa !important;
 }
 
 .navbar-toggler:active,
@@ -76,7 +154,7 @@ nav {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     transition: 0.3s;
-    width: fit-content;
+    display: inline-block;
 }
 
 .btn-primary:hover {
@@ -193,4 +271,11 @@ footer {
 
 .office-info p {
     font-size: 0.85rem;
+}
+
+.stok-text {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #f8f9fa;
 }

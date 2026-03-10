@@ -279,3 +279,22 @@ footer {
     font-size: 0.9rem;
     color: #f8f9fa;
 }
+
+.btn-login {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: #2c2616 !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important; 
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    color: #000000 !important;
+}
+
+::placeholder {
+    color: rgba(28, 28, 28, 0.5) !important;
+    font-size: 0.9rem;
+}

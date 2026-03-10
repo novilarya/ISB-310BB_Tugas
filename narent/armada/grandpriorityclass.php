@@ -1,3 +1,13 @@
+<?php
+    session_start();
+
+    if($_SESSION['user'] ?? null) {
+        $user = $_SESSION['user'];
+    } else {
+        $user = null;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -20,35 +30,44 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Reservasi Online</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Layanan Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Armada Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Bantuan</a></li>
+
+                    <?php if (!$user): ?>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-login btn-sm px-4" href="../login.php">
+                                Login
+                            </a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item dropdown ms-lg-3">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle fs-4"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0" style="background-color: #76663b;">
+                                <li><a class="dropdown-item text-white" href="../profile.php"><i class="bi bi-person me-2"></i>Profil</a></li>
+                                <li><hr class="dropdown-divider border-secondary"></li>
+                                <li><a class="dropdown-item text-white" href="../controller/proses_logout.php"><i class="bi bi-box-arrow-right me-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    <?php endif; ?>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            Reservasi Online
+                        <a class="nav-link position-relative px-3" href="javascript:void(0)" onclick="tampilkanWishlist()" title="Keranjang Wishlist">
+                            <i class="bi bi-cart3 fs-5"></i> 
+                            <span id="wishlist-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem; padding: 0.35em 0.5em;">
+                                0
+                            </span>
                         </a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">
-                            Tentang Kami
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">
-                            Layanan Kami
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">
-                            Armada Kami
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#">
-                            Bantuan
-                        </a>
-                    </li>
-                    <li class="nav-item ms-lg-3">
-                        <a class="nav-link" href="#">
-                            <i class="bi bi-person-circle fs-4 me-2"></i> Masuk / Daftar
-                        </a>
+
+                    <li class="nav-item ms-lg-2">
+                        <button id="btn-theme" class="btn nav-link border-0 shadow-none" title="Ganti Tema">
+                            <i class="bi bi-moon-stars fs-5" id="theme-icon"></i>
+                        </button>
                     </li>
                 </ul>
             </div>
@@ -86,7 +105,7 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="fw-bold mb-3">NA Rent</h6>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="../index.html">Beranda</a></li>
+                        <li><a href="../index.php">Beranda</a></li>
                         <li><a href="#">Tentang Kami</a></li>
                         <li><a href="#">Hubungi Kami</a></li>
                     </ul>
@@ -149,5 +168,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
